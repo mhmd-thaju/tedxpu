@@ -1,4 +1,5 @@
 import React from 'react';
+import './Navbar.css';
 
 const Navbar = () => {
   return (
@@ -21,7 +22,7 @@ const Navbar = () => {
         >
           <span className="navbar-toggler-icon" />
         </button>
-        <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <div className="navb-items collapse navbar-collapse justify-content-space-between" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
               <a className="nav-link active" href="#">Home</a>
