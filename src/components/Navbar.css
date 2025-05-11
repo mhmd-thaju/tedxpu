@@ -1,41 +1,75 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:700");
 
-@property --offset {
-  syntax: '<length>';
-  inherits: false;
-  initial-value: 0;
+/* Basic Styling */
+.navbar {
+  background-color: #000 !important;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-a {
-    color: inherit;
-    text-underline-offset: var(--offset, 0.2em);
-    text-decoration: underline 0.15em;
-    transition: --offset 400ms, text-decoration-color 400ms;
-  }
-  
-  a:hover {
-    --offset: 0.4em;
-    text-decoration-color: red;
-  }
-  
-  @supports not (background: paint(something)) {
-    a {
-      transition: text-underline-offset 400ms, text-decoration-color 400ms;
-    }
-    
-    a:hover,
-    a:focus {
-      text-underline-offset: 0.4em;
-    }
+
+.navbar-brand {
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.05);
+}
+
+.navbar-nav {
+  margin-left: auto;
+  gap: 1rem;
+}
+
+.nav-link {
+  color: #fff !important;
+  font-size: 1rem;
+  position: relative;
+  padding: 0.5rem 0.75rem;
+  transition: color 0.3s ease;
+}
+
+.nav-link.active {
+  color: red !important;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 4px;
+  width: 0%;
+  height: 2px;
+  background: red;
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+  color: red !important;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Navbar toggler styling */
+.navbar-toggler {
+  border-color: red;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='red' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Responsive Tweaks */
+@media (max-width: 991px) {
+  .navbar-nav {
+    gap: 0.5rem;
   }
 
-  .nav-link{
-    text-decoration: underline;
-    text-decoration-color: black;
+  .nav-link {
+    padding: 0.5rem;
   }
 
-  .navb-items{
-    position: fixed;
-    padding-right: 20px;
-    right: 0;
+  .navb-items {
+    margin-top: 1rem;
   }
-  
+}
