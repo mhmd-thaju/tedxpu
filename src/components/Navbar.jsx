@@ -1,27 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Navbar.css';
 
 const Navbar = () => {
-  const [activeLink, setActiveLink] = useState("home");
-
-  const handleLinkClick = (linkName) => {
-    setActiveLink(linkName.toLowerCase());
-  };
-
-  const navItems = ["Home", "About", "Speakers", "Sponsors", "Contact"];
-
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-black px-4">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-black px-3">
       <div className="container-fluid">
-        <a className="navbar-brand d-flex flex-column" href="/">
-          <div>
-            <span style={{ color: 'red', fontWeight: 'bold' }}>TEDx</span>PondicherryUniversity
-          </div>
+        <a className="navbar-brand d-flex flex-column" href="#">
+          <div><span style={{ color: 'red', fontWeight: 'bold' }}>TEDx</span>PondicherryUniversity</div>
           <small style={{ fontSize: '0.75rem', color: 'white' }}>
             x = independently organized TED event
           </small>
         </a>
-
         <button
           className="navbar-toggler"
           type="button"
@@ -33,20 +22,23 @@ const Navbar = () => {
         >
           <span className="navbar-toggler-icon" />
         </button>
-
         <div className="navb-items collapse navbar-collapse justify-content-space-between" id="navbarNav">
           <ul className="navbar-nav">
-            {navItems.map((item) => (
-              <li className="nav-item" key={item}>
-                <a
-                  className={`nav-link ${activeLink === item.toLowerCase() ? "active" : ""}`}
-                  href={`/${item.toLowerCase()}`}
-                  onClick={() => handleLinkClick(item)}
-                >
-                  {item}
-                </a>
-              </li>
-            ))}
+            <li className="nav-item">
+              <a className="nav-link active" href="#">Home</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">About</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">Speakers</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">Sponsors</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">Contact</a>
+            </li>
           </ul>
         </div>
       </div>

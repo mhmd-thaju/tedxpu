@@ -2,17 +2,14 @@
 
 /* Basic Styling */
 .navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
   background-color: #000 !important;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.navbar-brand {
-  transition: transform 0.3s ease;
-}
 
-.navbar-brand:hover {
-  transform: scale(1.05);
-}
 
 .navbar-nav {
   margin-left: auto;
@@ -61,7 +58,20 @@
 
 /* Responsive Tweaks */
 @media (max-width: 991px) {
+  .navbar-collapse {
+    position: fixed;
+    left: 0;
+    top: 58px;
+    width: 250px; /* Restrict width */
+    height: 100vh; /* Full screen height */
+    background: transparent; /* Make background transparent */
+    backdrop-filter: blur(10px); /* Optional: Adds blur effect */
+    padding: 1rem;
+    z-index: 999; /* Ensures it stays above other content */
+  }
+
   .navbar-nav {
+    flex-direction: column; /* Stack items vertically */
     gap: 0.5rem;
   }
 
@@ -72,4 +82,8 @@
   .navb-items {
     margin-top: 1rem;
   }
+
+  
 }
+
+
